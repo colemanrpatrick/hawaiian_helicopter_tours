@@ -162,35 +162,3 @@ function resizeReset(elem){
   element.style.transform = "translate(-"+ 0 +"px,0)";
 
 }
-
-//==== toggle explained for posterity ===//
-
-// function testPoly(objectIn, elementName) {
-
-  // takes the class name and turns it into a string
-  // var classArray = objectIn.className.split(" ");
-  //
-  // var elementIndex = classArray.indexOf(elementName);
-
-  // You do need howmany if you are removing an item
-  // Since we have the index, we don't need to pass the name
-//   if (classArray.length >= 2){
-//
-//     console.log("array before splice:"," ",classArray,"element index:",elementIndex,"array length:",classArray.length);
-//
-//     classArray.splice(elementIndex);
-//
-//     console.log("array after splice:", classArray,elementIndex,classArray.length);
-//
-//     objectIn.className = classArray.join();
-//
-//     console.log("array after join:"," ",classArray,"element index:",elementIndex,"array length:",classArray.length);
-//   }else{
-//     console.log("array before push:"," ",classArray,"element index:",elementIndex,"array length:",classArray.length);
-//
-//     classArray.push(elementName);
-//     objectIn.className = classArray.join(" ");
-//
-//     console.log("array after push:"," ",classArray,"element index:",elementIndex,"array length:",classArray.length);
-//   }
-// }
