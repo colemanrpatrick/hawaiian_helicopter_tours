@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="user-scalable = yes, width=320, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
@@ -15,7 +16,7 @@
       <div id="wrapper">
         <!-- ============================ -->
         <div id="masthead">
-          <section>
+          <div class="section"> <!-- section -->
             <button type="button" class="menu-btn" name="button" id="menu-btn" onclick="idToggle('main-nav','active');idToggle('menu-btn','active')">
               <hr class="menu-btn-hr-1"/>
               <hr class="menu-btn-hr-2"/>
@@ -62,119 +63,496 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </div> <!-- section -->
         </div>
         <!-- ============================ -->
-        <div class="checkpoint-first">
-        <div id="banner">
-          <header>
-            <h2>discount Hawaii helicopter tour reservations</h2>
-            <h3>Save up to 28% off</h3>
-          </header>
-          <div id="bannerBefore"></div>
+        <div id="catalog">
+          <div id="catalog-main">
+              <header>Maui Helicopter Tours</header>
+              <p class="description">(change this later for seo reasons) Did you know that only about 30 percent of the island of Maui can be reached by car? Most of the island is inaccessible from the ground. So don’t leave Maui without having seen it first! Hawaii Discount offers a great selection of helicopter tours on Maui at hugely discounted rates.</p>
+
+                <div id="catalog-nav">
+                  <div id="vendor-nav">
+                    <h4>sort by airline:</h4>
+                    <ul>
+                      <li><button type="button" class="sort-btn" onclick="showAll()">all</button></li>
+                      <li><button type="button" class="sort-btn" onclick="vendorSort('vendorA');">Sunshine</button></li>
+                      <li><button type="button" class="sort-btn" onclick="vendorSort('vendorB');">Air Maui</button></li>
+                      <li><button type="button" class="sort-btn" onclick="vendorSort('vendorC');">Blue Hawaiian</button></li>
+                    </ul>
+                  </div>
+                  <div id="product-sort">
+                    <h4>
+                      sort by:
+                    </h4>
+                    <ul>
+                      <li>
+                        <button type="button" class="sort-btn">price <i class="material-icons">attach_money</i></button>
+                        <div class="drop-down" id="dropdown-1">
+                          <button type="button" class="drop-down-btn" onclick="sortList('>','price-attr');">low to high</button>
+                          <button type="button" class="drop-down-btn" onclick="sortList('<','price-attr');">high to low</button>
+                        </div>
+                      </li>
+                      <li>
+                        <button type="button" class="sort-btn">duration <i class="material-icons">access_time</i></button>
+                        <div class="drop-down" id="dropdown-2">
+                          <button type="button" class="drop-down-btn" onclick="sortList('<','dur-attr');">longest to shortest</button>
+                          <button type="button" class="drop-down-btn"  onclick="sortList('>','dur-attr');">shortest to longest</button>
+                        </div>
+                      </li>
+                      <li>
+                        <button type="button" class="sort-btn" onclick="sortList('<','data-review')">best rated <i class="material-icons">stars</i></button>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button id="toggle-catalog" type="button" name="button" onclick="idToggle('vendor-nav','hidden'); idToggle('product-sort','hidden'); idToggle('toggle-catalog','active')">
+                    <span class="state1">show menu<i class="material-icons">expand_more</i></span>
+                    <span class="state2"><i class="material-icons">close</i></span>
+                  </button>
+                </div>
+
+
+              <!-- ============================ -->
+              <ul id="product-list">
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorA" data-review="5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-1','active')">learn</br>more</button><div class="discount-badge">save<br><span>$25</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>sunshine tours</p>
+                    <h3>Hana / Haleakala Special</h3>
+                    <dl><dd>from<dd><dt class="price">$185.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">45</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorA" data-review="5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-2','active')">learn</br>more</button><div class="discount-badge">save<br><span>$47</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>sunshine tours</p>
+                    <h3>Molokai Deluxe Tour</h3>
+                    <dl><dd>from<dd><dt class="price">$223.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">65</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                  <i class="material-icons">star_rate</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorA" data-review="5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-3','active')">learn</br>more</button><div class="discount-badge">save<br><span>$27</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>sunshine tours</p>
+                    <h3>circle island deluxe</h3>
+                    <dl><dd>from<dd><dt class="price">$247.75</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">70</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorB" data-review="4.5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-4','active')">learn</br>more</button><div class="discount-badge">save<br><span>$63</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>air maui</p>
+                    <h3>Complete Circle Island Helicopter Tour</h3>
+                    <dl><dd>from<dd><dt class="price">$286.59</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">60</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_half</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorB" data-review="5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-5','active')">learn</br>more</button><div class="discount-badge">save<br><span>$63</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>air maui</p>
+                    <h3>West Maui & Molokai Helicopter Tour</h3>
+                    <dl><dd>from<dd><dt class="price">$286.59</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">60</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorB" data-review="5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-6','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>air maui</p>
+                    <h3>doors off molokai</h3>
+                    <dl><dd>from<dd><dt class="price">$273.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">45</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorB" data-review="4.5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-7','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>air maui</p>
+                    <h3>helicopter tour from maui</h3>
+                    <dl><dd>from<dd><dt class="price">$226.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">45</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_half</i>
+                </div>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorB" data-review="4.5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-8','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>air maui</p>
+                    <h3>helicopter tour from maui</h3>
+                    <dl><dd>from<dd><dt class="price">$226.50</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">45</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_half</i>
+                </div>
+                </li>
+                <!--- ==== --->
+                <li class="product" id="p1" vendor="vendorC" data-review="5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-9','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>blue hawaii</p>
+                    <h3>Complete Island of Maui Tour</h3>
+                    <dl><dd>from<dd><dt class="price">$359.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">65</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                </div>
+                </li>
+                <!-- ==== -->
+                <li class="product" id="p1" vendor="vendorC" data-review="4.5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-10','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>blue hawaii</p>
+                    <h3>West Maui Mountains Helicopter Tour</h3>
+                    <dl><dd>from<dd><dt class="price">$210.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">30</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_half</i>
+                </div>
+                </li>
+                <!-- ====== -->
+                <li class="product" id="p1" vendor="vendorC" data-review="4">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-11','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>blue hawaii</p>
+                    <h3>Hana / Haleakala</h3>
+                    <dl><dd>from<dd><dt class="price">$279.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">50</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                </div>
+                </li>
+                <!-- ====== -->
+                <li class="product" id="p1" vendor="vendorC" data-review="4.5">
+                <div class="section"> <!-- section -->
+                  <button class="learn-more" onclick="idToggle('detail-12','active')">learn</br>more</button><div class="discount-badge">save<br><span>$49</span></div>
+                  <div class="article"> <!-- article -->
+                    <p>blue hawaii</p>
+                    <h3>West Maui & Molokai Tour</h3>
+                    <dl><dd>from<dd><dt class="price">$210.00</dt></dl>
+                    <a href="#">book now</a>
+                    <span class="duration">30</span>
+                  </div> <!-- article -->
+                </div> <!-- section -->
+                <div class="review">
+                  <img src="images/tripadvisor.png" alt="">
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_rate</i>
+                  <i class="material-icons" >star_half</i>
+                </div>
+                </li>
+                <!-- ====== -->
+              </ul>
+          </div>
         </div>
+
         <!-- ============================ -->
-        <div id="island-nav">
-          <header>select an island</header>
-          <ul>
-          <li><a href="#"><img src="images/island_banners.jpeg"><span>oahu</span></a></li>
-          <li><a href="#"><img src="images/island_banners.jpeg" id="maui-icon"><span>maui</span></a></li>
-          <li><a href="#"><img src="images/island_banners.jpeg" id="kauai-icon"><span>kauai</span></a></li>
-          <li><a href="#"><img src="images/island_banners.jpeg" id="big-island-icon"><span>big island</span></a></li>
-          </ul>
+        <div class="detail-wrapper" id="detail-1">
+        <div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-1','active')"><i class="material-icons">close</i></button></header>
+          <div class="section"> <!-- section -->
+            <div class="article"> <!-- article -->
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <ul>
+                <li class="dtl-price"></li>
+                <li class="dtl-discount"></li>
+                <li class="dtl-duration"></li>
+              </ul>
+              <a href="#">book now</a>
+            </div> <!-- article -->
+          </div> <!-- section -->
         </div>
-        </div>
-        <!-- ============================ -->
-        <div id="featured-cont">
-          <header>featured discounts</header>
-          <ul>
-            <li id="p1">
-            <section>
-              <div class="discount-badge">
-                save<br>
-                <span>00%</span>
-              </div>
-              <article>
-                <p>departure location or vendor</p>
-                <h3>helicopter tour from oahu</h3>
-                <dl>
-                  <dd>from<dd>
-                  <dt>$000.00</dt>
-                </dl>
-                <a href="#">learn more</a>
-              </article>
-            </section>
-            </li>
-            <li id="p2">
-            <section>
-              <div class="discount-badge">
-                save<br>
-                <span>00%</span>
-              </div>
-              <article>
-                <p>departure location or vendor</p>
-                <h3>helicopter tour from maui</h3>
-                <dl>
-                  <dd>from<dd>
-                  <dt>$000.00</dt>
-                </dl>
-                <a href="#">learn more</a>
-              </article>
-            </section>
-            </li>
-            <li id="p3">
-            <section>
-              <div class="discount-badge">
-                save<br>
-                <span>00%</span>
-              </div>
-              <article>
-                <p>departure location or vendor</p>
-                <h3>helicopter tour from kauai</h3>
-                <dl>
-                  <dd>from<dd>
-                  <dt>$000.00</dt>
-                </dl>
-                <a href="#">learn more</a>
-              </article>
-            </section>
-            </li>
-            <li id="p4">
-            <section>
-              <div class="discount-badge">
-                save<br>
-                <span>00%</span>
-              </div>
-              <article>
-                <p>departure location or vendor</p>
-                <h3>helicopter tour from big island</h3>
-                <dl>
-                  <dd>from<dd>
-                  <dt>$000.00</dt>
-                </dl>
-                <a href="#">learn more</a>
-              </article>
-            </section>
-            </li>
-          </ul>
-        </div>
-        <!-- ============================ -->
-        <div class="checkpoint">
-        <div id="about">
-          <div class="about-img"><img src="images/Oahu Experience 2.JPG"></div>
-          <article>
-            <header>why book with us?</header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="detail-wrapper" id="detail-2">
+      <div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-2','active')"><i class="material-icons">close</i></button></header>
+        <div class="section"> <!-- section -->
+          <div class="article"> <!-- article -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             <ul>
-              <li><img src="images/heli-logo.png"><span>coverage 1</span><br/><p>Lorem ipsum dolor sit amet</p></li>
-              <li><img src="images/heli-logo.png"><span>coverage 2</span><br/><p>Lorem ipsum dolor sit amet</p></li>
-              <li><img src="images/heli-logo.png"><span>coverage 3</span><br/><p>Lorem ipsum dolor sit amet</p></li>
-              <li><img src="images/heli-logo.png"><span>coverage 4</span><br/><p>Lorem ipsum dolor sit amet</p></li>
+              <li class="dtl-price"></li>
+              <li class="dtl-discount"></li>
+              <li class="dtl-duration"></li>
             </ul>
-          </article>
-        </div>
-        </div>
-        <!-- ============================ -->
+            <a href="#">book now</a>
+          </div> <!-- article -->
+        </div> <!-- section -->
+      </div>
+    </div>
+    <div class="detail-wrapper" id="detail-3">
+    <div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-3','active')"><i class="material-icons">close</i></button></header>
+      <div class="section"> <!-- section -->
+        <div class="article"> <!-- article -->
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <ul>
+            <li class="dtl-price"></li>
+            <li class="dtl-discount"></li>
+            <li class="dtl-duration"></li>
+          </ul>
+          <a href="#">book now</a>
+        </div> <!-- article -->
+      </div> <!-- section -->
+    </div>
+  </div>
+  <div class="detail-wrapper" id="detail-4">
+  <div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-4','active')"><i class="material-icons">close</i></button></header>
+    <div class="section"> <!-- section -->
+      <div class="article"> <!-- article -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <ul>
+          <li class="dtl-price"></li>
+          <li class="dtl-discount"></li>
+          <li class="dtl-duration"></li>
+        </ul>
+        <a href="#">book now</a>
+      </div> <!-- article -->
+    </div> <!-- section -->
+  </div>
+</div>
+<div class="detail-wrapper" id="detail-5">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-5','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+<div class="detail-wrapper" id="detail-6">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-6','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+<div class="detail-wrapper" id="detail-7">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-7','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+<div class="detail-wrapper" id="detail-8">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-8','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+<div class="detail-wrapper" id="detail-9">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-9','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+<div class="detail-wrapper" id="detail-10">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-10','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+<div class="detail-wrapper" id="detail-11">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-11','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+
+<div class="detail-wrapper" id="detail-12">
+<div class="detail"><header><h2>helicopter title</h2><button type="button" name="button" onclick="idToggle('detail-12','active')"><i class="material-icons">close</i></button></header>
+  <div class="section"> <!-- section -->
+    <div class="article"> <!-- article -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>
+        <li class="dtl-price"></li>
+        <li class="dtl-discount"></li>
+        <li class="dtl-duration"></li>
+      </ul>
+      <a href="#">book now</a>
+    </div> <!-- article -->
+  </div> <!-- section -->
+</div>
+</div>
+        <!-- =========================== -->
         <footer class="footer">
           <header>
             <div class="logo">
@@ -184,7 +562,7 @@
               </a>
             </div>
           </header>
-          <section>
+          <div class="section"> <!-- section -->
             <ul>
               <li><b>navigation</b></li>
               <li> <a href="#">home</a> </li>
@@ -200,7 +578,7 @@
               <li> <a href="#">terms</a> </li>
               <li> <a href="#">login</a> </li>
             </ul>
-          </section>
+          </div> <!-- section -->
           <p>Copyright (c) 2019 hawaii discount All Rights Reserved.</p>
         </footer>
         <!-- ============================ -->
@@ -209,6 +587,6 @@
     </main>
   </body>
   <script type="text/javascript" src="toggle.js"></script>
-  <script type="text/javascript" src="checkpoint.js"></script>
+  <script type="text/javascript" src="sort.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </html>
